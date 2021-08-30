@@ -23,6 +23,6 @@ export class DataService {
     return throwError(errorMessage);
   }
   public sendGetRequest() {
-    return this.httpClient.get(this.REST_API_SERVER).pipe(catchError(this.handleError));
+    return this.httpClient.get(this.REST_API_SERVER).pipe(retry(3), catchError(this.handleError));
   }
 }
