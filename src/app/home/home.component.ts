@@ -24,7 +24,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     })  
   }
   ngOnDestroy() {
-    throw new Error('Method not implemented.');
+    this.destroy$.next(true);
+    // Unsubscribe from the subject
+    this.destroy$.unsubscribe();
   }
 
 }
