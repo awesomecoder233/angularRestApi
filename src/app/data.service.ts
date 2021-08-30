@@ -19,6 +19,8 @@ export class DataService {
       //server-side errors
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
   }
   public sendGetRequest() {
     return this.httpClient.get(this.REST_API_SERVER);
